@@ -4,6 +4,6 @@ composer create-project symfony/skeleton app ^4.4.0
 
 Need to create volume for vendor, cache, log ?
 
-winpty docker exec -it docker_php_composer_app_1 bash
+winpty docker exec -it docker-composer-php_app_1 bash
 
  
