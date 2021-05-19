@@ -1,0 +1,34 @@
+version: '3.4'
+
+services:
+  app:
+    ports:
+      - 80:80
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/app/public
+      - DATABASE_URL=mysql://root:mdp@db:3306/testDocker?serverVersion=5.7
+    build:
+      context: .
+    volumes:
+      - .:/var/www/html
+      - ./config/vhost.conf:/etc/apache2/sites-available/000-default.conf
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    restart: on-failure
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: 'testDocker'
+      MYSQL_ROOT_PASSWORD: 'mdp'
+    volumes:
+      - ./mysql:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db

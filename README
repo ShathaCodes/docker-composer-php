@@ -1,0 +1,9 @@
+docker-compose build incase you change the Dockerfile and/or the docker-compose.yml
+
+composer create-project symfony/skeleton app ^4.4.0
+
+Need to create volume for vendor, cache, log ?
+
+winpty docker exec -it docker_php_composer_app_1 bash
+
+ 
