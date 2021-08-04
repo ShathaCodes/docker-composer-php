@@ -1,9 +1,11 @@
-docker-compose build incase you change the Dockerfile and/or the docker-compose.yml
+# Environment for Symfony
 
-composer create-project symfony/skeleton app ^4.4.0
+docker-compose build incase it's your first time or you have changed either the Dockerfile and/or the docker-compose.yml
+docker-compose up
 
-Need to create volume for vendor, cache, log ?
+docker ps to get the container id of your app
+docker exec -it container-id /bin/bash
 
-winpty docker exec -it docker-composer-php_app_1 bash
+composer create-project symfony/skeleton app
 
  
