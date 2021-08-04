@@ -1,4 +1,4 @@
-# Environment for Symfony
+Environment for Symfony
 
 docker-compose build incase it's your first time or you have changed either the Dockerfile and/or the docker-compose.yml
 docker-compose up
